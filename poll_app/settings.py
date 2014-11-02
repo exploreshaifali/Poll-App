@@ -21,6 +21,8 @@ SECRET_KEY = 'gy$5_(8coxw+!@262a*q*&f^s%beavjvfsvd%zy_7rceztluje'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False.
+# So set it to '*' from [] to match any host
 
 TEMPLATE_DEBUG = True
 
