@@ -1,0 +1,10 @@
+<h1>Results for "{{ question.question_text }}"</h1>
+
+<table>
+<tr> <td>Choice Text</td> <td>Votes</td> </tr>  
+{% for choice in question.choice_set.all %}
+    <tr> <td>{{ choice.choice_text }} </td> <td> {{ choice.votes }} vote{{ choice.votes|pluralize }} </td> </tr>  
+{% endfor %}
+</table>
+
+<a href="{% url 'poll:detail' question.id %}">Vote again?</a>
