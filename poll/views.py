@@ -3,25 +3,30 @@ from django.shortcuts import render, get_object_or_404, render
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-
+from django.utils import timezone
 from poll.models import Question, Choice
 
 def index(request):
     #return HttpResponse("Hello, world. You're at the poll index.")
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    #latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    """
+    Return the last five published questions (not including those set to be
+    published in the future).
+    """
+    latest_question_list = Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'poll/index.html', context)
 
 
 def detail(request, question_id):
     #return HttpResponse("You're looking at poll %s." % question_id)
-    question = get_object_or_404(Question, pk=question_id)
+    question = get_object_or_404(Question, pk=question_id, pub_date__lte=timezone.now())
     return render(request, 'poll/detail.html', {'question': question})  
 
 
 def results(request, question_id):
     #return HttpResponse("You're looking at the results of poll %s." % question_id)
-    question = get_object_or_404(Question, pk=question_id)    
+    question = get_object_or_404(Question, pk=question_id, pub_date__lte=timezone.now())    
     return render(request, 'poll/results.html', {'question': question,})
 
 
