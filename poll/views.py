@@ -6,6 +6,9 @@ from django.core.urlresolvers import reverse
 from django.utils import timezone
 from poll.models import Question, Choice
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def index(request):
     #return HttpResponse("Hello, world. You're at the poll index.")
     #latest_question_list = Question.objects.order_by('-pub_date')[:5]
@@ -18,7 +21,7 @@ def index(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'poll/index.html', context)
 
-
+@login_required
 def detail(request, question_id):
     #return HttpResponse("You're looking at poll %s." % question_id)
     question = get_object_or_404(Question, pk=question_id, pub_date__lte=timezone.now())
