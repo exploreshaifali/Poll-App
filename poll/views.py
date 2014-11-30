@@ -27,13 +27,13 @@ def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id, pub_date__lte=timezone.now())
     return render(request, 'poll/detail.html', {'question': question})  
 
-
+@login_required
 def results(request, question_id):
     #return HttpResponse("You're looking at the results of poll %s." % question_id)
     question = get_object_or_404(Question, pk=question_id, pub_date__lte=timezone.now())    
     return render(request, 'poll/results.html', {'question': question,})
 
-
+@login_required
 def vote(request, question_id):
     #return HttpResponse("You're voting on poll %s." % question_id)    
     p = get_object_or_404(Question, pk=question_id)
