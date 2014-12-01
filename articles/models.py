@@ -9,3 +9,6 @@ class Article(models.Model):
 	pub_date = models.DateTimeField()
 	likes = models.IntegerField()
 
+	def __unicode__(self):
+		return self.title
+
