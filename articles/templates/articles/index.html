@@ -1,0 +1,13 @@
+
+<h1> Welcome to the Polls App</h1>
+
+{% if articles_list %}
+    <ul>
+    {% for article in articles_list %}
+    	<li> {{ article.title }} </li>        
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No articles are available :(</p>
+
+{% endif %}

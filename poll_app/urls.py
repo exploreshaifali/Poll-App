@@ -21,4 +21,7 @@ urlpatterns = patterns('',
     # To make poll index page to ne index page of whole application
     # url(r'^$', include('poll.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    # adding url for articles app
+    url(r'^articles/', include('articles.urls', namespace='articles')),
 )
