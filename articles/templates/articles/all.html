@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title>Django Consultants</title>
+{% endblock %}
+
+{% block body %}
+  <header>
+      <h1>Django Consultants</h1>
+  </header>
+
+  <section>
+      <p>All articles are follows:</p>
+      {% for article in articles_list %}
+      <ul>
+      	<li>
+      		<a href="/articles/get/{{article.id}}">{{ article.title|title }} </a> <br/>
+      	    {{ article.body|lower|truncatewords:10  }}
+      	</li>
+      </ul>
+      {% endfor %}
+  </section>
+{% endblock %}

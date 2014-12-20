@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% comment %}
+  Main page of django_consultant's website.
+{% endcomment %}
+
+{% block head %}
+  <title>Django Consultants</title>
+{% endblock %}
+
+{% block body %}
+  <header>
+      <h1>Django Consultants</h1>
+  </header>
+
+  <section>
+      <h1> {{ article.title }}</h1>
+      <p>{{article.body}}</p>
+  </section>
+{% endblock %}
