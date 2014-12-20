@@ -13,7 +13,6 @@
 
 	#content{
 		float:left;
-		width:400px;
 		border: 1px solid #000;
 		padding: 10px;
 	}
@@ -24,6 +23,7 @@
         <div id="sidebar">
             {% block sidebar %}
     		<ul>
+    			<li><a href="/">Home</a></li>
     			<li><a href="/articles/all">Articles</a></li>
     			<li><a href="/admin">Admin</a></li>
     			<li><a href="/polls">Polls</a></li>
@@ -31,7 +31,7 @@
              {% endblock %}
         </div>
     	<div id='content'>
-  			{% block content %}{% endblock %}
+  			{% block content %} main content area{% endblock %}
     		{% block body %}{% endblock %}
     	</div>
     </div>
