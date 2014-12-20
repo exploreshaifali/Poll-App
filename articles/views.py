@@ -11,6 +11,18 @@ class IndexView(generic.ListView):
 		"""Retutn last 9 published articles"""
 		return Article.objects.order_by('pub_date')[:9]
 
+def article_all(request):
+	'''return list of all articles'''
+	articles_list = Article.objects.all()
+	context = {'articles_list' : articles_list}
+	return render(request, 'articles/all.html', context)
+
+def article(request, article_id):
+	'''return article whose id is given in function argument'''
+	article = Article.objects.get(id = article_id)
+	context = {'article': article}
+	return render(request, 'articles/article.html', context)
+
 
 # def article_index(request):
 # 	'''return the list of articles present in databse'''
