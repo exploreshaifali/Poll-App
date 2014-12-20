@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block head %}
-  <title>Django Consultants</title>
+  <title>Django App</title>
+    <header>
+      <h1>Django App</h1>
+  </header>
 {% endblock %}
 
 {% block body %}
-  <header>
-      <h1>Django Consultants</h1>
-  </header>
   {% if articles_listl.count <= 0 %}
       <section>
           <p>All articles are follows:</p>
