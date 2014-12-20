@@ -8,16 +8,19 @@
   <header>
       <h1>Django Consultants</h1>
   </header>
-
-  <section>
-      <p>All articles are follows:</p>
-      {% for article in articles_list %}
-      <ul>
-      	<li>
-      		<a href="/articles/get/{{article.id}}">{{ article.title|title }} </a> <br/>
-      	    {{ article.body|lower|truncatewords:10  }}
-      	</li>
-      </ul>
-      {% endfor %}
-  </section>
+  {% if articles_listl.count <= 0 %}
+      <section>
+          <p>All articles are follows:</p>
+          {% for article in articles_list %}
+          <ul>
+      	    <li>
+      		    <a href="/articles/get/{{article.id}}">{{ article.title|title }} </a> <br/>
+      		    {{ article.body|lower|truncatewords:10  }}
+      	    </li>
+          </ul>
+          {% endfor %}
+      </section>    
+  {% else %}
+  <p> Not any article yet :( </p>
+  {% endif %}
 {% endblock %}
