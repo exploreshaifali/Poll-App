@@ -7,8 +7,8 @@
   </header>
 {% endblock %}
 
-{% block body %}
-  {% if articles_listl.count <= 0 %}
+{% block content %}
+  {% if articles_list.count > 0 %}
       <section>
           <p>All articles are follows:</p>
           {% for article in articles_list %}
