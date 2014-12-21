@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-  <h3> Lanhuage is {{ language }} </h3>
+
   {% if articles_list.count > 0 %}
       <section>
           <p>All articles are follows:</p>
@@ -24,4 +24,6 @@
   {% else %}
   <p> Not any article yet :( </p>
   {% endif %}
+  <h3> Lanhuage is {{ language }} </h3>
+  <h5> session language is {{session_language}} </h5>
 {% endblock %}

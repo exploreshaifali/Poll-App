@@ -18,11 +18,17 @@ def article_all(request):
 	language = 'en-us' #will be stored in cookies
 	session_language = 'en-us' #will be stored in sessions
 
+	#getting value from cookies
 	if 'lang' in request.COOKIES:
 		language = request.COOKIES['lang']
 
+	#getting value from sessions
+	if 'lang' in request.session:
+		session_language = request.session['lang']
+
 	articles_list = Article.objects.all()
-	context = {'articles_list' : articles_list, 'language' : language}
+	context = {'articles_list' : articles_list,
+				'language' : language, 'session_language' : session_language}
 	return render(request, 'articles/all.html', context)
 
 def article(request, article_id):
@@ -34,6 +40,8 @@ def article(request, article_id):
 def language(request, language='en-us'):
 	response = HttpResponse("setting language to %s" % language)
 	response.set_cookie('lang', language)
+	request.session['lang'] = language
+
 	return response
 
 
