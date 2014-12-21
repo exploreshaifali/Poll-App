@@ -1,0 +1,18 @@
+<style type="text/css">
+
+    #page{
+      background-color: #a00;
+    }
+    
+    #sidebar{
+		float:left;
+		width:200px;
+		border: 1px solid #000;
+	   }
+
+	#content{
+		float:left;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+    </style>
