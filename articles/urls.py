@@ -8,4 +8,6 @@ urlpatterns = patterns('',
 
     url(r'^all/$', 'articles.views.article_all'),
     url(r'^get/(?P<article_id>\d+)/$', 'articles.views.article'),
+    url(r'^language/(?P<language>[a-z\-]+)/$', 'articles.views.language'),
+
 )
