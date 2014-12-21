@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from articles.models import Article
 from django.views import generic
+
+from django.http import HttpResponse
 # Create your views here.
 
 class IndexView(generic.ListView):
@@ -13,8 +15,14 @@ class IndexView(generic.ListView):
 
 def article_all(request):
 	'''return list of all articles'''
+	language = 'en-us' #will be stored in cookies
+	session_language = 'en-us' #will be stored in sessions
+
+	if 'lang' in request.COOKIES:
+		language = request.COOKIES['lang']
+
 	articles_list = Article.objects.all()
-	context = {'articles_list' : articles_list}
+	context = {'articles_list' : articles_list, 'language' : language}
 	return render(request, 'articles/all.html', context)
 
 def article(request, article_id):
@@ -22,6 +30,11 @@ def article(request, article_id):
 	article = Article.objects.get(id = article_id)
 	context = {'article': article}
 	return render(request, 'articles/article.html', context)
+
+def language(request, language='en-us'):
+	response = HttpResponse("setting language to %s" % language)
+	response.set_cookie('lang', language)
+	return response
 
 
 # def article_index(request):
