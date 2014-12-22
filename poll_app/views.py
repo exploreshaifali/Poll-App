@@ -20,3 +20,18 @@ def login(request):
 	c.update(csrf(request))
 	return render_to_response('login.html', c)
 
+def auth_view(request):
+    username = request.POST.get('username', '')	
+    # empty string specify if username value does not exist in POST dictonary yet
+    # then return an empty string
+    password = request.POST.get('password', '')
+
+    # main check is here
+    user = auth.authenticate(username=username, password=password)
+
+    if user is not None:
+    	# set status of user to loggedin as user is authenticated
+    	auth.login(request, user)
+    	return HttpResponseRedirect('/accounts/loggedin')
+    else:
+    	return HttpResponseRedirect('/accounts/invalid')
