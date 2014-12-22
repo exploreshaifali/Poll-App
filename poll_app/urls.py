@@ -11,11 +11,11 @@ urlpatterns = patterns('',
     url(r'^$', 'poll_app.views.main_page', name='main_page'),
     # url(r'^blog/', include('blog.urls')),
 
-    # Login / logout.
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='login'),
-    # url(r'^accounts/profile/$', 'django.contrib.auth.views.profile'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout',
-        name='logout'),
+    # # Login / logout.
+    # url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='login'),
+    # # url(r'^accounts/profile/$', 'django.contrib.auth.views.profile'),
+    # url(r'^accounts/logout/$', 'django.contrib.auth.views.logout',
+    #     name='logout'),
 
     url(r'^polls/', include('poll.urls', namespace='poll')),
     # To make poll index page to ne index page of whole application
@@ -24,4 +24,11 @@ urlpatterns = patterns('',
 
     # adding url for articles app
     url(r'^articles/', include('articles.urls', namespace='articles')),
+
+    #user auth urls
+    url(r'^accounts/login/$', 'poll_app.views.login'),
+    url(r'^accounts/auth/$', 'poll_app.views.auth_view'),
+    url(r'^accounts/logout/$', 'poll_app.views.logout'),
+    url(r'^accounts/loggedin/$', 'poll_app.views.loggedin'),
+    url(r'^accounts/invalid/$', 'poll_app.views.invalid_login'),
 )
