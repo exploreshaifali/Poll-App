@@ -31,4 +31,7 @@ urlpatterns = patterns('',
     url(r'^accounts/logout/$', 'poll_app.views.logout'),
     url(r'^accounts/loggedin/$', 'poll_app.views.loggedin'),
     url(r'^accounts/invalid/$', 'poll_app.views.invalid_login'),
+    # registeration urls
+    url(r'^accounts/register/$', 'poll_app.views.register_user'),
+    url(r'^accounts/register_success/$', 'poll_app.views.register_success'),
 )
