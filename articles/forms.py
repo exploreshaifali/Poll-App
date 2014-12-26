@@ -8,4 +8,4 @@ class ArticleForm(forms.ModelForm):
 	class Meta:
 		"""docstring for Meta"""
 		model = Article
-		fields = ('title', 'body', 'pub_date')
+		fields = ('title', 'body', 'pub_date', 'thumbnail')
