@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^get/(?P<article_id>\d+)/$', 'articles.views.article'),
     url(r'^language/(?P<language>[a-z\-]+)/$', 'articles.views.language'),
     url(r'^create/$', 'articles.views.create'),
+    url(r'^like/(?P<article_id>\d+)/$', 'articles.views.like_article'),
 )
