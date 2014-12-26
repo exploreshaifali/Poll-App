@@ -27,6 +27,7 @@
       	    <li>
       		    <a href="/articles/get/{{article.id}}">{{ article.title|title }} </a> <br/>
       		    {{ article.body|lower|truncatewords:10  }}
+              <p> {{ article.likes }} people liked this article.</p>
       	    </li>
           </ul>
           {% endfor %}
