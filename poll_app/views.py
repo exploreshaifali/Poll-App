@@ -4,8 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib import auth 
 from django.core.context_processors import csrf
-from django.contrib.auth.forms import UserCreationForm
-
+from forms import MyRegisterationForm
 
 def main_page(request):
     return render_to_response('index.html')
@@ -49,7 +48,7 @@ def logout(request):
 
 def register_user(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyRegisterationForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/accounts/register_success/')
@@ -58,7 +57,7 @@ def register_user(request):
     args = {}            
     args.update(csrf(request))
 
-    args['form'] = UserCreationForm() # blank user creation form
+    args['form'] = MyRegisterationForm() # blank user creation form
     print(args)
     return render_to_response('register.html', args)
 
