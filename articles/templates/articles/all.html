@@ -7,6 +7,16 @@
   </header>
 {% endblock %}
 
+{% block sidebar%}
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/articles/all">Articles</a></li>
+    <li><a href="/articles/create">Create Articles </a> </li>
+    <li><a href="/admin">Admin</a></li>
+    <li><a href="/polls">Polls</a></li>
+  </ul>
+{% endblock %}
+
 {% block content %}
 
   {% if articles_list.count > 0 %}
