@@ -3,6 +3,13 @@ from articles.models import Article
 from django.views import generic
 
 from django.http import HttpResponse
+
+from forms import ArticleForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.core.context_processors import csrf
+
+import django.shortcuts
 # Create your views here.
 
 class IndexView(generic.ListView):
@@ -44,10 +51,21 @@ def language(request, language='en-us'):
 
 	return response
 
+def create(request):
+    if request.method == 'POST':
+    	form = ArticleForm(request.POST)
+    	if form.is_valid():
+    		form.save()
+    		return HttpResponseRedirect('/articles/all')
 
-# def article_index(request):
-# 	'''return the list of articles present in databse'''
-# 	articles_list = Article.objects.order_by('pub_date')
-# 	context = {'articles_list': articles_list}
-# 	return render(request, 'articles/index.html', context)
+    else:
+    	form = ArticleForm()
 
+    args = {}    	
+    args.update(csrf(request))
+
+    args['form'] = form
+    print(args)
+
+    # return render_to_response('create_article.html', args)
+    return render(request, 'create_article.html', args)
