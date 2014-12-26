@@ -76,3 +76,15 @@ def like_article(request, article_id):
 	a.save()
 
 	return HttpResponseRedirect('/articles/get/%s' % article_id)
+
+def search_titles(request):
+	'''Return the article whose title matches to seatch_text'''
+	if request.method == 'POST':
+		search_text = request.POST['search_text']
+	else:
+		search_text = ''
+
+	articles = Article.objects.filter(title__constrains=search_text)
+	context = {'articles': articles}
+	return render('ajax_search.html', context)
+	
