@@ -8,12 +8,11 @@
 {% endblock %}
 
 {% block body %}
-  <header>
-      <h1>Django Consultants</h1>
-  </header>
 
   <section>
       <h1> {{ article.title }}</h1>
       <p>{{article.body}}</p>
   </section>
+  <p> {{ article.likes }} people liked this article.</p>
+  <p><a href="/articles/like/{{ article.id }}">Like</a></p>
 {% endblock %}
