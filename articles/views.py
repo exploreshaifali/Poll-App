@@ -65,7 +65,14 @@ def create(request):
     args.update(csrf(request))
 
     args['form'] = form
-    print(args)
+    # print(args)
 
-    # return render_to_response('create_article.html', args)
-    return render(request, 'create_article.html', args)
+    return render_to_response('create_article.html', args)
+    # return render(request, 'create_article.html', args)
+
+def like_article(request, article_id):
+	a = Article.objects.get(id=article_id)
+	a.likes += 1
+	a.save()
+
+	return HttpResponseRedirect('/articles/get/%s' % article_id)
