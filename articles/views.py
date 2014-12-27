@@ -36,6 +36,8 @@ def article_all(request):
 	articles_list = Article.objects.all()
 	context = {'articles_list' : articles_list,
 				'language' : language, 'session_language' : session_language}
+
+	context.update(csrf(request))
 	return render(request, 'articles/all.html', context)
 
 def article(request, article_id):
