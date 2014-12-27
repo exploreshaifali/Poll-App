@@ -27,10 +27,10 @@ class MyRegisterationForm(UserCreationForm):
 		return user
 
 class ContactForm1(forms.Form):
-	subect = forms.CharField(max_length=100)
+	subject = forms.CharField(max_length=100)
 
-class ContactForm2(object):
+class ContactForm2(forms.Form):
 	sender = forms.EmailField()
 
 class ContactForm3(forms.Form):
-	message = form.CharField(widget=forms.Textarea)
+	message = forms.CharField(widget=forms.Textarea)
