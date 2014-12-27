@@ -33,11 +33,14 @@ def article_all(request):
 	if 'lang' in request.session:
 		session_language = request.session['lang']
 
-	articles_list = Article.objects.all()
-	context = {'articles_list' : articles_list,
-				'language' : language, 'session_language' : session_language}
+        context = {}		
+        context.update(csrf(request))
 
-	context.update(csrf(request))
+	articles_list = Article.objects.all()
+	context['articles_list'] = articles_list
+	context['language'] = language
+	context['session_language'] = session_language
+
 	return render(request, 'articles/all.html', context)
 
 def article(request, article_id):
@@ -88,5 +91,5 @@ def search_titles(request):
 
 	articles = Article.objects.filter(title__constrains=search_text)
 	context = {'articles': articles}
-	return render('ajax_search.html', context)
+	return render_to_response('ajax_search.html', context)
 	
