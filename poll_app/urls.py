@@ -2,6 +2,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from poll_appj.forms import ContactForm1, ContactForm2, ContactForm3
+from poll_app.views import ContactWizard
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -34,4 +37,5 @@ urlpatterns = patterns('',
     # registeration urls
     url(r'^accounts/register/$', 'poll_app.views.register_user'),
     url(r'^accounts/register_success/$', 'poll_app.views.register_success'),
+    url(r'^contact/$', ContactWizard.as_view([ContactForm1, ContactForm2, ContactForm3])),
 )
