@@ -25,3 +25,12 @@ class MyRegisterationForm(UserCreationForm):
 			user.save()
 
 		return user
+
+class ContactForm1(forms.Form):
+	subect = forms.CharField(max_length=100)
+
+class ContactForm2(object):
+	sender = forms.EmailField()
+
+class ContactForm3(forms.Form):
+	message = form.CharField(widget=forms.Textarea)
