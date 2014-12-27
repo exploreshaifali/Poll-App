@@ -15,6 +15,11 @@
     <li><a href="/admin">Admin</a></li>
     <li><a href="/polls">Polls</a></li>
   </ul>
+  <h3>Search</h3>
+  {% csrf_token %}
+  <input type="text" id="search" name="search">
+
+  <ul id="search-results"></ul>
 {% endblock %}
 
 {% block content %}
