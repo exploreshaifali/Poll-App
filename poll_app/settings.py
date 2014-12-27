@@ -88,6 +88,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+# sending e-mails setting
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 8000
+
 #Absolute file system part to the directory that will hold user uploaded files.
 MEDIA_ROOT = '/home/shaifali/poll_app/static'
 
