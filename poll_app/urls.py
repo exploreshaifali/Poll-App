@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'poll_app.views.home', name='home'),
     # to make appliction index as main_page defined in views
     url(r'^$', 'poll_app.views.main_page', name='main_page'),
+
+    url(r'^first_map', 'poll_app.views.first_map'),
     # url(r'^blog/', include('blog.urls')),
 
     # # Login / logout.
