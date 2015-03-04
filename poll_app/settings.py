@@ -41,7 +41,7 @@ DEFAULT_APPS = (
     'django.contrib.formtools',
 )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = ('easy_maps',)
 
 LOCAL_APPS = (
     'poll',
