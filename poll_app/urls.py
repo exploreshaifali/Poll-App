@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from poll_appj.forms import ContactForm1, ContactForm2, ContactForm3
+from poll_app.forms import ContactForm1, ContactForm2, ContactForm3
 from poll_app.views import ContactWizard
 
 

@@ -79,6 +79,8 @@ def process_form_data(form_list):
     form_data = [form.cleaned_data for form in form_list]
 
     send_mail(form_data[0]['subject'],
-        form_data[2]['message'], form_data[1]['sender'],
-        [agrawalshaifali09@gmail.com], fail_silently=False)
+              form_data[2]['message'],
+              form_data[1]['sender'],
+              #[agrawalshaifali09@gmail.com], 
+              fail_silently=False)
     return form_data
