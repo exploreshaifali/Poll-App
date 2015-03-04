@@ -84,3 +84,6 @@ def process_form_data(form_list):
               #[agrawalshaifali09@gmail.com], 
               fail_silently=False)
     return form_data
+
+def first_map(request):
+    return render_to_response("first_map.html")
