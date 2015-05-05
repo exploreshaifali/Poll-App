@@ -46,6 +46,7 @@ THIRD_PARTY_APPS = ('easy_maps',)
 LOCAL_APPS = (
     'poll',
     'articles',
+    'masterIt',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
