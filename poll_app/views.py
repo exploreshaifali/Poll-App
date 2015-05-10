@@ -55,6 +55,8 @@ def register_user(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/accounts/register_success/')
+        else:
+            print("invalid form submitted!")
 
     # for users visiting page first time
     args = {}            
