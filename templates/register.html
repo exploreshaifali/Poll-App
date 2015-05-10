@@ -2,6 +2,15 @@
 
 {% block content %}
 	<h2>Register</h2>
+
+    {% if form.errors %}
+        <p class="error">Some error occured, Please try again!!</p>
+    {% endif %}
+
+    {% if not form.is_valid %}
+        <p class="error"><b>Your submission is not valid, Please fill details carefully.</b></p>
+    {% endif %}
+
 	<form action="/accounts/register/" method="post">
 		{% csrf_token %}
 		{{ form }}
