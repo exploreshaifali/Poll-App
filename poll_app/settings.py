@@ -1,5 +1,5 @@
 """
-Django settings for poll_app project.
+Dang settings for poll_app project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -41,7 +41,7 @@ DEFAULT_APPS = (
     'django.contrib.formtools',
 )
 
-THIRD_PARTY_APPS = ('easy_maps',)
+THIRD_PARTY_APPS = ('easy_maps', 'cities_light', 'address',)
 
 LOCAL_APPS = (
     'poll',
